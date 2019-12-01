@@ -91,8 +91,12 @@ do
     	$samtools view $outDir/${name}_unmapped_trim_filter_$i.sam >$outDir/${name}_unmapped_trim_filter_noheader_$i.sam
 
 	# step5 - merge two step alignment
-	echo "step1.5 - Merge chimeric reads with mapped full-length reads."	
-	awk 'NR==FNR{a[$1]=$0;next;}a[$1]{$0=a[$1]}1' $outDir/${name}_unmapped_trim_filter_noheader_$i.sam  $outDir/${name}_${i}_raw.sam  >$outDir/${name}_$i.sam
+	if [ -s "$outDir/${name}_unmapped_trim_filter_noheader_$i.sam" ]; then
+	    echo "step1.5 - Merge chimeric reads with mapped full-length reads."	
+	    awk 'NR==FNR{a[$1]=$0;next;}a[$1]{$0=a[$1]}1' $outDir/${name}_unmapped_trim_filter_noheader_$i.sam  $outDir/${name}_${i}_raw.sam  >$outDir/${name}_$i.sam
+	else
+	    scp $outDir/${name}_${i}_raw.sam $outDir/${name}_$i.sam
+	fi
     fi
 done
 
@@ -116,8 +120,7 @@ else
     echo -e "Second stage alignment aligned reads total 1: "$chimericAlign1 >>$summaryFile
     echo -e "Second stage alignment aligned reads total 2: "$chimericAlign2 >>$summaryFile
 
-    echo -e $((rawAlign1 + rawAlign2 + chimericAlign1 + chimericAlign2)) >$summaryFile.alignedN
-    echo -e $((chimericAlign1 + chimericAlign2)) >$summaryFile.chimericN
+
 fi
 
                                                                                               

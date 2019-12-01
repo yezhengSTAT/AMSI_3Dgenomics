@@ -139,12 +139,7 @@ if __name__ == "__main__":
         print("Output file = ", args.output)
         print("Summary of alignment results = ", args.summary)
         print("Summary file path = ", args.summaryFile)
-        print("Training = ", args.train)
         print("Verbose = ", args.verbose)
-
-    if int(args.train) == 1:
-        print("Trainning!")
-    
         
     ## Initial count variable for summary
     singleton_count = 0
