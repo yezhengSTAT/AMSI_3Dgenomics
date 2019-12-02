@@ -11,7 +11,15 @@ output: html_document
 
 Install `HiCRep`  R package for the reproducibility/similarity evaluation.
 
+First in bash (terminal), create a directory to install R package:
+
 ```
+mkdir -p ~/Rpackage
+```
+Then install package in R:
+
+```
+.libPaths("~/Rpackage")
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
@@ -25,10 +33,11 @@ The main function that we will use is `get.scc` which calculates the stratum-adj
 HiCRep has embedded smoothing function hence it recommends using raw contact count. Therefore, we will utilize bin pair files, such as `AMSI_3Dgenomics/results/Ring/step5_bin/Ring_chr7.binPairs`, for input matrix generation in R.
 
 ```
+library(hicrep)
 library(data.table)
 library(dplyr)
-hicData1 <- fread("Ring_chr7.binPairs") %>% select(V2, V4, V5)
-hicData2 <- fread("Trophozoite_chr7.binPairs") %>% select(V2, V4, V5)
+hicData1 <- fread("~/AMSI_3Dgenomics/results/Ring/step5_bin/Ring_chr7.binPairs") %>% select(V2, V4, V5)
+hicData2 <- fread("~/AMSI_3Dgenomics/results/Ring/step5_bin/Trophozoite_chr7.binPairs") %>% select(V2, V4, V5)
 
 hicDataMerge <- full_join(hicData1, hicData2, by = c("V2", "V4"))
 hicDataMerge[is.na(hicDataMerge)] <- 0

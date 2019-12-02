@@ -15,7 +15,6 @@ For practical processing of Hi-C data, we are going to leverage three different 
 All the data and scripts are available on AMSI BioInfoSummer 3D Genomics Workshop GitHub <https://github.com/yezhengSTAT/AMSI_3Dgenomics>. 
 
 ```
-cd pathToWorkingDirectory
 git clone https://github.com/yezhengSTAT/AMSI_3Dgenomics
 ```
 
@@ -38,7 +37,7 @@ bwa aln -n 3 -o 1 -t 1 AMSI_3Dgenomics/Plasmodium/supportData/PlasmoDB-9.0_Pfalc
 AMSI_3Dgenomics/Plasmodium/rawData/Ring_chr7_1.fastq \
 >AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sai
 
-$bwa samse AMSI_3Dgenomics/Plasmodium/supportData/PlasmoDB-9.0_Pfalciparum3D7_Genome.fasta \
+bwa samse AMSI_3Dgenomics/Plasmodium/supportData/PlasmoDB-9.0_Pfalciparum3D7_Genome.fasta \
 AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sai \
 AMSI_3Dgenomics/Plasmodium/rawData/Ring_chr7_1.fastq \ >AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sam
 ```
