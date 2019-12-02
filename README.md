@@ -34,13 +34,13 @@ We will start with introduction to the 3D genomics background, fundamental proce
 
 ### Google Cloud Access
 
-1. Type ```35.224.233.82``` in your web browser. Ignore all the danger warning ;)
+1. Type ```35.232.81.4``` in your web browser. Ignore all the danger warning ;)
 
 2. Enter the username and password provided to you.
 
 3. Type ```git clone https://github.com/yezhengSTAT/AMSI_3Dgenomics``` in the Terminal (On the left panel next to Console).
 
-### Practical Linux Command
+### Practical Linux Commands
 
 - Get current directory path: pwd 
 - Go to other directory: cd pathToOtherDirectory 

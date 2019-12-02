@@ -7,23 +7,12 @@ output: html_document
 
 ### I. Quality Control
 
-#### 1. Install HiCRep Package in R
+#### 1. Input Data Format
 
-Install `HiCRep`  R package for the reproducibility/similarity evaluation.
-
-First in bash (terminal), create a directory to install R package:
+First load the HiCRep R package into R console.
 
 ```
-mkdir -p ~/Rpackage
-```
-Then install package in R:
-
-```
-.libPaths("~/Rpackage")
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-BiocManager::install("hicrep")
+library(hicrep)
 ```
 
 The main function that we will use is `get.scc` which calculates the stratum-adjusted correlation coefficient for each pair of contact matrices on one chromosome. Try `?get.scc` to check the input data format.
@@ -33,11 +22,10 @@ The main function that we will use is `get.scc` which calculates the stratum-adj
 HiCRep has embedded smoothing function hence it recommends using raw contact count. Therefore, we will utilize bin pair files, such as `AMSI_3Dgenomics/results/Ring/step5_bin/Ring_chr7.binPairs`, for input matrix generation in R.
 
 ```
-library(hicrep)
 library(data.table)
 library(dplyr)
 hicData1 <- fread("~/AMSI_3Dgenomics/results/Ring/step5_bin/Ring_chr7.binPairs") %>% select(V2, V4, V5)
-hicData2 <- fread("~/AMSI_3Dgenomics/results/Ring/step5_bin/Trophozoite_chr7.binPairs") %>% select(V2, V4, V5)
+hicData2 <- fread("~/AMSI_3Dgenomics/results/Trophozoite/step5_bin/Trophozoite_chr7.binPairs") %>% select(V2, V4, V5)
 
 hicDataMerge <- full_join(hicData1, hicData2, by = c("V2", "V4"))
 hicDataMerge[is.na(hicDataMerge)] <- 0
@@ -61,6 +49,8 @@ get.scc(hicDataMerge, 10000, 1000000)$scc
 
 #### 1. Install Selfish in Bash
 [Selfish](https://github.com/ay-lab/selfish), i.e., Self-fishing, is a tool for finding differential chromatin interactions between two Hi-C contact maps.
+
+First, we will need to install Selfish in Terminal:
 
 ```
 git clone https://github.com/ay-lab/selfish

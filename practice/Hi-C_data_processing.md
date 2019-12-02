@@ -41,6 +41,7 @@ bwa samse AMSI_3Dgenomics/Plasmodium/supportData/PlasmoDB-9.0_Pfalciparum3D7_Gen
 AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sai \
 AMSI_3Dgenomics/Plasmodium/rawData/Ring_chr7_1.fastq \ >AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sam
 ```
+.sai file is the output of command `bwa aln`. .sai file contain the suffix array coordinate of all short reads loaded in. For bwa, sequence alignment is equal to searching for suffix array interval of substring of chromosome that matches the short read.
 
 `AMSI_3Dgenomics/results/Ring/step1_alignment/Ring_chr7_1.sam` is our alignment results for Ring stage chromosome 7 end1. 
 
@@ -67,11 +68,13 @@ ligateSite="GATCGATC"     ## Sequence at the ligation site. 0 for not re-align t
 bash AMSI_3Dgenomics/scripts/step1_alignment.sh "$bin" "$fastqFile" "${step1Path}" "$bwa" "$samtools"  "$ref" "$coreN" "$mismatchN" "$gapN" "$summaryFile" "$ligateSite"
 ```
 
-There will be three files generated at `AMSI_3Dgenomics/results/Ring/step1_alignment`:
+There will be two files generated at `AMSI_3Dgenomics/results/Ring/step1_alignment`:
 
 - `Ring_chr7_1.sam`: alignment results for Ring stage chromosome 7 end 1.
 
 - `Ring_chr7_2.sam`: alignment results for Ring stage chromosome 7 end 2.
+
+One extra summary file will be saved at `AMSI_3Dgenomics/results/Ring`:
 
 - `summary.txt`: step 1 alignment results summary.
 
@@ -99,7 +102,7 @@ There will be one files generated at `AMSI_3Dgenomics/results/Ring/step2_readEnd
 
 - `Ring_chr7.sam`: alignment results after pairing two ends for Ring stage chromosome 7.
 
-Check your summary file. You will see the read ends pairing summary statistics added!
+Check your summary file at `AMSI_3Dgenomics/results/Ring/summary.txt`. You will see the read ends pairing summary statistics added!
 
 ### Step 3: Validation Filtering
 

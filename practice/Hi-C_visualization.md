@@ -42,32 +42,32 @@ awk -v OFS="\t" '{print 0, $2, $3, 1, 16, $7, $8, 0}' AMSI_3Dgenomics/results/Ri
 
 #### .hic File Generation
 
-1. Download juicer tools. 
+Convert interactions (short format) into .hic format.
 
 ```
-wget https://s3.amazonaws.com/hicfiles.tc4ga.com/public/juicer/juicer_tools_1.14.08.jar
-```
-
-2. Convert interactions (short format) into .hic format.
-
-```
-java -Xmx2g -jar juicer_tools_1.14.08.jar pre AMSI_3Dgenomics/results/Ring/Juicebox/Ring_chr7.pre AMSI_3Dgenomics/results/Ring/Juicebox/Ring_chr7.hic AMSI_3Dgenomics/Plasmodium/supportData/plasmodium.chrom.sizes -d true
+java -Xmx2g -jar AMSI_3Dgenomics/bin/juicer_tools_1.14.08.jar pre AMSI_3Dgenomics/results/Ring/Juicebox/Ring_chr7.pre AMSI_3Dgenomics/results/Ring/Juicebox/Ring_chr7.hic AMSI_3Dgenomics/Plasmodium/supportData/plasmodium.chrom.sizes -d true
 ```
 
 Transfer `AMSI_3Dgenomics/results/Ring/Juicebox/Ring_chr7.hic` back to your own laptop for online visualization.
 
 #### Visualization
 
-- genome coordinate
+1. Open the Online Juicebox at `https://aidenlab.org/juicebox/`.
 
-- resolution
+2. Load Map - Local Map File - Find the downloaded .hic file.
 
-- color scale
+3. Check the following:
 
-- Normalization (Optional task: compare KR normalization with the `Balanced` normalization function on Juicebox.)
+    - genome coordinate
 
-- Comparison between three stages
+    - resolution
 
-- Public data and other genome tracks
+    - color scale
 
-- Desktop version
+    - Normalization (Optional task: compare KR normalization with the `Balanced` normalization function on Juicebox.)
+
+    - Comparison between three stages
+
+    - Public data and other genome tracks
+
+    - Desktop version
