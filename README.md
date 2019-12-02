@@ -39,3 +39,25 @@ We will start with introduction to the 3D genomics background, fundamental proce
 2. Enter the username and password provided to you.
 
 3. Type ```git clone https://github.com/yezhengSTAT/AMSI_3Dgenomics``` in the Terminal (On the left panel next to Console).
+
+### Practical Linux Command
+
+- Get current directory path: pwd 
+- Go to other directory: cd pathToOtherDirectory 
+  - Current directory ./
+  - Home directory ~/ 
+- Move up one level of current directory: cd .. 
+- List all the files in the current directory: ls 
+- Check the content of a file: 
+  - less fileName (to open the file in terminal)
+  - Scroll down to see more of the file
+  - Type “q” to exit the file 
+- Copy a file from one place to another directory: cp path1/fileName path2/ 
+- Move a file from one place to another directory: mv path1/fileName path2/
+- Create a new directory in current folder: mkdir directoryName
+- Create a new file in current folder: touch fileName
+- Delete a file: rm pathToFile/fileName 
+- Delete a directory: rmdir pathToDirectory/dirName/ 
+- Compress a file: gzip –c fileName > fileName.gz or tar -zcvf fileName.tar.gz fileName
+- Uncompress a file: gunzip fileName.gz  or tar -zxvf fileName.tar.gz
+- Count the number of lines in a file: wc –l pathToFile/fileName
