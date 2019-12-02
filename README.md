@@ -1,9 +1,10 @@
 # 3D Genomics and Long-range Gene Regulations
 
 Workshop for AMSI BioInfoSummer 2019
-Session: Stream C, Tuesday, December 3, 2019, 1:30pm - 5:00pm
-Instructor: Ye Zheng, Fred Hutchinson Cancer Research Center
-Teaching Assistant: Yue Cao, University of Sydney
+
+- Session: Stream C, Tuesday, December 3, 2019, 1:30pm - 5:00pm
+- Instructor: Ye Zheng, Fred Hutchinson Cancer Research Center, yzheng23@fredhutch.org
+- Teaching Assistant: Yue Cao, University of Sydney
 
 Chromatin is dynamically organized within the three-dimensional nuclear space in a way that allows efficient genome packaging while ensuring proper expression and replication of the genetic materials. Therefore, understanding of genome architecture and revealing its relationship to the genomic function is vital and has progressed through the advancement of new technologies. Recently developed chromatin conformation capture-based assays (3C) enabled the study of three-dimensional chromosomal architecture in a high throughput fashion. Hi-C, particularly, elucidated genome-wide long-range interactions among loci. In this workshop, we will go through the state-of-the-art 3D genomics technologies and focus on the role of statistical methods and computational tools in analyzing 3D genomics data. Successful running of the complete pipeline and all software is not strictly required; instead, we will concentrate on the inference and interpretation of the results.
 
